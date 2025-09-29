@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romeo Sibanda</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .back-btn {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 0.3rem;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 4rem;
+        }
+        .sectionQ {
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            margin-bottom: 4rem;
+        }
+        .sectionQ h2 {
+           
+            margin-bottom: 1rem;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .feature h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature p {
+            color: var(--text-secondary);
+        }
+
+        /* Screenshots */
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+            gap: 2rem;
+        }
+
+        .screenshot {
+            background: var(--bg-card);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .screenshot-image {
+            width: 100%;
+            height: auto;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .screenshot-caption {
+            padding: 1.5rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 6rem 1rem 2rem;
+            }
+
+            .project-title {
+                font-size: 1.3rem;
+            }
+            .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+            nav .container {
+                padding: 0 1rem;
+            }
+            .sectionQ h2 {
+            font-size: 1.2rem;
+            color:white;
+            margin-bottom: 1rem;
+        }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 2rem;
+        }
+            .screenshot-image {
+            width: 100%;
+            height: auto;
+           
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Romeo Sibanda</div>
+            <a href="/" class="back-btn">Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Project Header -->
+        <div class="project-header" id="header">
+            <h1 class="project-title">AI-powered Mentorship Platform</h1>
+            <p class="project-subtitle">Connecting mentors and mentees through intelligent matching</p>
+        </div>
+
+        <!-- Description -->
+        <div class="sectionQ" id="about">
+            <h2>About This Project</h2>
+            <p class="description">
+                I developed this mentorship platform to solve the challenge of finding compatible mentor-mentee pairs. 
+                The system uses AI algorithms to analyze user profiles, skills, goals, and preferences to create meaningful connections.
+            </p>
+            <p class="description">
+                Beyond just matching, the platform provides tools for ongoing communication through integrated video calling and messaging. 
+                This creates a complete environment where mentorship relationships can flourish with proper support and structure.
+            </p>
+            <p class="description">
+                The project was built to be scalable and user-friendly, focusing on creating genuine value for both mentors and mentees 
+                looking to grow professionally and personally.
+            </p>
+        </div>
+
+        <!-- Features -->
+        <div class="section">
+            <h2>Key Features</h2>
+            <div class="features-grid" id="features">
+                <div class="feature">
+                    <h3>Smart Matching System</h3>
+                    <p>AI-powered algorithm that matches mentors and mentees based on skills, experience, goals, and personality compatibility for better relationships.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Video Calling</h3>
+                    <p>Built-in video conferencing allows face-to-face mentoring sessions with screen sharing and recording capabilities.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Real-time Messaging</h3>
+                    <p>Instant messaging system with file sharing, message history, and notification features to keep conversations flowing.</p>
+                </div>
+                
+               
+                
+                <div class="feature">
+                    <h3>User Profiles</h3>
+                    <p>Comprehensive profiles showcasing skills, experience, interests.</p>
+                </div>
+                
+                <div class="feature">
+                    <h3>Session Scheduling</h3>
+                    <p>Integrated calendar system for booking and managing mentorship sessions with automatic reminders.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screenshots -->
+        <div class="section">
+            <h2>Screenshots</h2>
+            <div class="screenshots" id="screenshots">
+                <div class="screenshot">
+                    <div class="screenshot-image">Dashboard</div>
+                    <div class="screenshot-caption">
+                        Main dashboard showing mentorship overview, upcoming sessions, and recent activities
+                    </div>
+                </div>
+                
+                <div class="screenshot">
+                    <div class="screenshot-image">Matching</div>
+                    <div class="screenshot-caption">
+                        AI matching interface displaying potential mentor/mentee matches with compatibility scores
+                    </div>
+                </div>
+                
+                <div class="screenshot">
+                    <div class="screenshot-image">Chat</div>
+                    <div class="screenshot-caption">
+                        Real-time messaging interface with file sharing and conversation history
+                    </div>
+                </div>
+                
+                <div class="screenshot">
+                    <div class="screenshot-image">Video Call</div>
+                    <div class="screenshot-caption">
+                        Video calling interface with screen sharing and session recording features
+                    </div>
+                </div>
+                
+                <div class="screenshot">
+                    <div class="screenshot-image">Profile</div>
+                    <div class="screenshot-caption">
+                        User profile page showing skills, experience, and mentorship preferences
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const screentab=document.getElementById("screenshots")
+    const features=document.getElementById("features")
+    const about=document.getElementById("about")
+    const head=document.getElementById("header")
+
+
+    const projects = {
+  project1: {
+    title: "AI-powered Mentorship Platform",
+     sub:"",
+    description: ["I developed this mentorship platform to solve the challenge of finding compatible mentor-mentee pairs. The system uses AI algorithms to analyze user profiles, skills, goals, and preferences to create meaningful connections.","Beyond just matching, the platform provides tools for ongoing communication through integrated video calling and messaging. This creates a complete environment where mentorship relationships can flourish with proper support and structure.","The project was built to be scalable and user-friendly, focusing on creating genuine value for both mentors and mentees looking to grow professionally and personally."],
+    features: [
+      "AI-powered algorithm that matches mentors and mentees based on skills, experience, goals, and personality compatibility for better relationships.",
+      "Built-in video conferencing allows face-to-face mentoring sessions with screen sharing and recording capabilities.",
+      "Instant messaging system with file sharing, message history, and notification features to keep conversations flowing.",
+      "Comprehensive profiles showcasing skills, experience, interests.",
+      "Integrated calendar system for booking and managing mentorship sessions with automatic reminders."
+    ],
+    titles:[
+        "Smart Matching System",
+      "Video Calling",
+      "Real-time Messaging",
+      "User Profiles",
+      "Session Scheduling"
+    ],
+    screenshots: [
+      {
+        title: "AI matching interface displaying potential mentor/mentee matches with compatibility percentages",
+        url: "EmentorMatch.png"
+      },
+      {
+        title: "Real-time messaging interface with file sharing and conversation history",
+        url: "EmentorMsg.png"
+      },
+      {
+        title: "Video calling interface with screen sharing and session recording features",
+        url: "https://example.com/ecommerce-checkout.png"
+      }, 
+      {
+        title: "User profile page showing skills, experience, and mentorship preferences",
+        url: "EmentorProfile.png"
+      },
+      {
+        title: "User profile page showing skills, experience, and mentorship preferences",
+        url: "EmentorFind.png"
+      },{
+        title: "Mentor's Dashboard",
+        url: "EmentorMentor.png"
+      },
+      {
+        title: "Interface for booking a slot",
+        url: "EmentorBook.png"
+      }
+
+      
+    ]
+  },
+  project2: {
+    title: "Gym Membership Manager",
+    sub:"",
+    description: [
+      "This app was built to streamline the management of gym memberships. It allows gym staff to add new members, renew existing memberships, and track expiration dates with ease.",
+      "A key feature is the automatic email notification system, which alerts members three days before their membership expires, helping gym staff retain members proactively.",
+      "The system includes role-based access, supporting both admin users (with full control) and regular users (with limited functionality), and allows quick member lookup by email."
+    ],
+    features: [
+      "Add, edit, and delete member profiles with personal and subscription details.",
+      "Manual membership renewal with a single click when a subscription expires.",
+      "Automated email notifications triggered 3 days before membership expiration.",
+      "Search functionality to find members quickly by their email address.",
+      "Role-based access control with admin and regular user distinctions."
+    ],
+    titles: [
+      "Membership Dashboard",
+      "Renew Membership Flow",
+      "Email Notification System",
+      "Search by Email",
+      "User Roles and Permissions"
+      
+    ],
+    screenshots: [
+      {
+        title: "Dashboard view listing all gym members and their membership status",
+        url: "Gym.png"
+      },
+      {
+        title: "Form for adding a new member with personal and subscription details",
+        url: "GymAdd.png"
+      },
+      {
+        title: "One-click renewal button on member profile for easy subscription updates and Search bar allowing users to find members by email address",
+        url: "GymRenew.png"
+      }
+    ]
+  },
+  project3: {
+    title: "AI-powered Food Health Mobile App",
+     sub:"",
+    description: [
+      "This mobile app simplifies food tracking by allowing users to log meals simply by capturing a photo. The AI model analyzes the image to identify the food items, removing the need for manual entry.",
+      "Based on the user's food history, health goals, allergies, and dietary conditions, the system suggests healthier alternatives and personalized meal recommendations.",
+      "The app also includes a real-time dashboard that gives users insights into their diet quality, showing macros consumed and remaining, and offering daily personalized health tips."
+    ],
+    features: [
+      "AI-powered image recognition to log meals by taking pictures of food.",
+      "Personalized healthy meal recommendations based on logged food, health goals, diet, and allergies.",
+      "Displays daily intake of calories, proteins, carbs, and fats with remaining calories.",
+      "Diet quality dashboard showing whether current eating habits are healthy or need improvement.",
+      "Smart health tips tailored to the user's eating patterns and goals.",
+    ],
+    titles: [
+      "Food Image Logging",
+      "Smart Meal Recommendations",
+      "Nutrition Dashboard",
+      "Diet Quality Insights",
+      "Personalized Health Tips"
+    ],
+    screenshots: [
+      {
+        title: "User logs food by taking a photo, and AI identifies the meal",
+        url: "https://example.com/food-image-log.png"
+      },
+      {
+        title: "Dashboard displaying daily nutrition (calories, protein, carbs, fat)",
+        url: "https://example.com/nutrition-dashboard.png"
+      },
+      {
+        title: "Meal recommendations based on health data and recent food logs",
+        url: "https://example.com/meal-recommendations.png"
+      },
+      {
+        title: "Diet quality overview with health score and personalized tips",
+        url: "https://example.com/diet-quality.png"
+      },
+      {
+        title: "List of recent meals",
+        url: "https://example.com/recent-meals.png"
+      }
+    ]
+  }}
+   
+  const params = new URLSearchParams(window.location.search);
+  var projectid=params.get("name")
+  
+  const project=projects[projectid]
+
+
+while(head.firstChild){
+    head.removeChild(head.firstChild);
+}
+
+while(features.firstChild){
+    features.removeChild(features.firstChild);
+}
+while(screentab.firstChild){
+    screentab.removeChild(screentab.firstChild);
+}
+while(about.firstChild){
+    about.removeChild(about.firstChild);
+}
+
+
+
+head.innerHTML=`<h1 class="project-title">${project.title}</h1>
+            <p class="project-subtitle">${project.sub}</p>`
+
+about.innerHTML=`<h2>About This Project</h2>
+            <p class="description">
+                ${project.description[0]}
+            </p>
+            <p class="description">
+               ${project.description[1]}
+            </p>
+            <p class="description">
+                ${project.description[2]}
+            </p>`
+        
+for(var i=0; i<project.features.length;i++){
+    features.innerHTML+=`<div class="feature">
+                    <h3>${project.titles[i]}</h3>
+                    <p>${project.features[i]}</p>
+                </div>`
+}
+
+for (const i of project.screenshots) {
+    screentab.innerHTML += `
+        <div class="screenshot">
+            <img class="screenshot-image" src="${i.url}" alt="${i.title}"/>
+            <div class="screenshot-caption">
+                ${i.title}
+            </div>
+        </div>`
+}
+</script>
+</html>
