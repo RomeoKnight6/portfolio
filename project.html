@@ -159,7 +159,15 @@
             gap: 2rem;
         }
 
+        .screenshotsN {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
         .screenshot {
+            width: 100%;
+    
             background: var(--bg-card);
             border-radius: 10px;
             overflow: hidden;
@@ -169,6 +177,20 @@
         .screenshot-image {
             width: 100%;
             height: auto;
+            
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .screenshot-imageN {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height:500px;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             display: flex;
             align-items: center;
@@ -179,7 +201,7 @@
         }
 
         .screenshot-caption {
-            padding: 1.5rem;
+            padding: 1em;;
             color: var(--text-secondary);
             text-align: center;
         }
@@ -222,7 +244,8 @@
             .screenshot-image {
             width: 100%;
             height: auto;
-           
+            object-fit: contain;
+            max-height:420px;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             display: flex;
             align-items: center;
@@ -240,7 +263,7 @@
     <nav>
         <div class="container">
             <div class="logo">Romeo Sibanda</div>
-            <a href="https://romeoknight6.github.io/portfolio/" class="back-btn">Back to Portfolio</a>
+            <a href="/" class="back-btn">Back to Portfolio</a>
         </div>
     </nav>
 
@@ -374,30 +397,30 @@
     screenshots: [
       {
         title: "AI matching interface displaying potential mentor/mentee matches with compatibility percentages",
-        url: "images/EmentorMatch.png"
+        url: "EmentorMatch.png"
       },
       {
         title: "Real-time messaging interface with file sharing and conversation history",
-        url: "images/EmentorMsg.png"
+        url: "EmentorMsg.png"
       },
       {
         title: "Video calling interface with screen sharing and session recording features",
-        url: "images/EmentorV.png"
+        url: "EmentorV.png"
       }, 
       {
         title: "User profile page showing skills, experience, and mentorship preferences",
-        url: "images/EmentorProfile.png"
+        url: "EmentorProfile.png"
       },
       {
         title: "User profile page showing skills, experience, and mentorship preferences",
-        url: "images/EmentorFind.png"
+        url: "EmentorFind.png"
       },{
         title: "Mentor's Dashboard",
-        url: "images/EmentorMentor.png"
+        url: "EmentorMentor.png"
       },
       {
         title: "Interface for booking a slot",
-        url: "images/EmentorBook.png"
+        url: "EmentorBook.png"
       }
 
       
@@ -429,15 +452,15 @@
     screenshots: [
       {
         title: "Dashboard view listing all gym members and their membership status",
-        url: "images/Gym.png"
+        url: "Gym.png"
       },
       {
         title: "Form for adding a new member with personal and subscription details",
-        url: "images/GymAdd.png"
+        url: "GymAdd.png"
       },
       {
         title: "One-click renewal button on member profile for easy subscription updates and Search bar allowing users to find members by email address",
-        url: "images/GymRenew.png"
+        url: "GymRenew.png"
       }
     ]
   },
@@ -464,25 +487,37 @@
       "Personalized Health Tips"
     ],
     screenshots: [
-      {
-        title: "User logs food by taking a photo, and AI identifies the meal",
-        url: "https://example.com/food-image-log.png"
+    {
+        title: "Diet quality overview with health sco and personalized tips",
+        url: "Dash.jpg"
       },
       {
-        title: "Dashboard displaying daily nutrition (calories, protein, carbs, fat)",
-        url: "https://example.com/nutrition-dashboard.png"
+        title: "User logs food by taking a photo, and AI identifies the meal",
+        url: "Screenshot_20250930_183101_host.exp.exponent.jpg"
       },
       {
         title: "Meal recommendations based on health data and recent food logs",
-        url: "https://example.com/meal-recommendations.png"
-      },
-      {
-        title: "Diet quality overview with health score and personalized tips",
-        url: "https://example.com/diet-quality.png"
+        url: "Reco.jpg"
       },
       {
         title: "List of recent meals",
-        url: "https://example.com/recent-meals.png"
+        url: "Recent.jpg"
+      },
+      {
+        title: "Select Your Health Conditions to Get Personalized Recommendations",
+        url: "Health.jpg"
+      },
+      {
+        title: "Select Your Diet and Allegies to Get Personalized Recommendations",
+        url: "Diet.jpg"
+      },
+      {
+        title: "Instantly Log Your Meal with One Tap",
+        url: "Log.jpg"
+      },
+      {
+        title: "NutriSnap Profile & Health Settings Screen",
+        url: "Settings.jpg"
       }
     ]
   }}
@@ -492,7 +527,9 @@
   
   const project=projects[projectid]
 
-
+  if(projectid=="project3"){
+    screentab.classList="screenshotsN";
+  }
 while(head.firstChild){
     head.removeChild(head.firstChild);
 }
@@ -531,17 +568,29 @@ for(var i=0; i<project.features.length;i++){
 }
 
 for (const i of project.screenshots) {
-    screentab.innerHTML += `
+    if(projectid=="project3"){
+        screentab.innerHTML += `
+        <div class="screenshot" style="width: 100%;">
+            <img class="screenshot-imageN" src="${i.url}" alt="${i.title}"/>
+            <div class="screenshot-caption">
+                ${i.title}
+            </div>
+        </div>`
+
+    }else{
+        screentab.innerHTML += `
         <div class="screenshot">
             <img class="screenshot-image" src="${i.url}" alt="${i.title}"/>
             <div class="screenshot-caption">
                 ${i.title}
             </div>
         </div>`
+    }
+    
 }
 </script>
-
 </html>
+
 
 
 
